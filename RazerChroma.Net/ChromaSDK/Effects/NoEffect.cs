@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net
+namespace RazerChroma.Net.ChromaSDK.Effects
 {
-    public class Class1
+    public struct NoEffect
     {
+        public uint Size;
+        public uint Param;
     }
+
 }

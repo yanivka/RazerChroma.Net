@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.KeyPad
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Reactive
+    {
+        public enum _Duration
         {
-            public enum _Duration
-            {
-                None = 0,
-                Short,
-                Medium,
-                Long,
-                Invalid
-            }
-            public _Duration Duration;             
- 
-             public NativeWin32.ColorRef Color;
+            None = 0,
+            Short,
+            Medium,
+            Long,
+            Invalid
         }
+        public _Duration Duration;
+
+        public NativeWin32.ColorRef Color;
+    }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.ChromaSDK.Effects
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Blinking
     {
         public uint Size;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.ChromaSDK.Effects
 {
-
+    [StructLayout(LayoutKind.Sequential)]
     public struct Custom
     {
         public uint Size;

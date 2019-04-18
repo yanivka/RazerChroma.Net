@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.Mouse
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Custom2
-         {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            public NativeWin32.ColorRef[][] Color; 
-         }
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
+        public NativeWin32.ColorRef[][] Color;
+    }
 }

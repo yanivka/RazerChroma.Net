@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.Mouse
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Spectrumcycling
-         {
-            public Definitions.RzLed LEDId;
-         }
+    {
+        public Definitions.RzLed LEDId;
+    }
 }

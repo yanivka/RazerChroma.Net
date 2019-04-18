@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.Keyboard
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct CustomKey
-         {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            public NativeWin32.ColorRef[][]  Color;        
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            public NativeWin32.ColorRef[][]  Key;          
-         }
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
+        public NativeWin32.ColorRef[][] Color;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
+        public NativeWin32.ColorRef[][] Key;
+    }
 }

@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.Mouse
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Breathing
-         {
-            public enum _Type
-            {
-                OneColor = 1,
-                TwoColors,
-                RandomColors,
-                Invalid
-            }
-            public Definitions.RzLed LEDId;   
-            public _Type Type;
-            public NativeWin32.ColorRef Color1;
-            public NativeWin32.ColorRef Color2;
-         }
+    {
+        public enum _Type
+        {
+            OneColor = 1,
+            TwoColors,
+            RandomColors,
+            Invalid
+        }
+        public Definitions.RzLed LEDId;
+        public _Type Type;
+        public NativeWin32.ColorRef Color1;
+        public NativeWin32.ColorRef Color2;
+    }
 }

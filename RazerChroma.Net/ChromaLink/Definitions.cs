@@ -19,17 +19,6 @@ namespace RazerChroma.Net.ChromaLink
             CHROMA_STATIC,
             CHROMA_INVALID
         }
- 
-         public struct Custom
-        {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxLeds))]
-            public NativeWin32.ColorRef[] Color;
-        }
- 
-         public struct Static
-        {
-            public NativeWin32.ColorRef Color;
-        }
 
 
     }

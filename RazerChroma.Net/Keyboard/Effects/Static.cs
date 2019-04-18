@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.Keyboard
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Static
-        {
-            public NativeWin32.ColorRef Color;
-        }
+    {
+        public NativeWin32.ColorRef Color;
+    }
 }

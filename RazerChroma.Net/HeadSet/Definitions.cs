@@ -20,22 +20,7 @@ namespace RazerChroma.Net.HeadSet
             Custom,
             Invalid
         }
- 
-         public struct Static
-        {
-            public NativeWin32.ColorRef Color;
-        }
- 
-         public struct Breathing
-        {
-            public NativeWin32.ColorRef Color;
-        }
- 
-         public struct Custom
-        {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(MaxLeds))]
-            public NativeWin32.ColorRef[] Color;
-        }
+
 
     }
 }

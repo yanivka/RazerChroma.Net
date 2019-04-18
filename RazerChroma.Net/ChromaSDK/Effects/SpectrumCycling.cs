@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.ChromaSDK.Effects
 {
-
+    [StructLayout(LayoutKind.Sequential)]
     public struct SpectrumCycling
     {
         public uint Size;

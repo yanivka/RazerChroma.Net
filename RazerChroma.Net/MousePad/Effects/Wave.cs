@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.MousePad
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Wave
+    {
+        public enum _Direction
         {
-            public enum _Direction
-            {
-                None = 0,
-                LeftToRight,
-                RightToLeft,
-                Invalid
-            }
-            public _Direction Direction;                    
-         }
+            None = 0,
+            LeftToRight,
+            RightToLeft,
+            Invalid
+        }
+        public _Direction Direction;
+    }
 }

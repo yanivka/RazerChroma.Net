@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RazerChroma.Net.MousePad
 {
+    [StructLayout(LayoutKind.Sequential)]
     public struct Static
         {
             public NativeWin32.ColorRef Color;

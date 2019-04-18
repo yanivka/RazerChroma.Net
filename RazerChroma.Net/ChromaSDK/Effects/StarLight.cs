@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RazerChroma.Net.ChromaSDK.Effects
 {
 
-    public struct StarLights
+    public struct StarLight
     {
         public enum _Type
         {

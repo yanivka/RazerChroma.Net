@@ -63,10 +63,21 @@
     <Compile Include="Keyboard\Effects\StarLight.cs" />
     <Compile Include="Keyboard\Effects\Static.cs" />
     <Compile Include="Keyboard\Effects\Wave.cs" />
+    <Compile Include="Mouse\Definitions.cs" />
+    <Compile Include="Mouse\Effects\Blinking.cs" />
+    <Compile Include="Mouse\Effects\Breathing.cs" />
+    <Compile Include="Mouse\Effects\Custom.cs" />
+    <Compile Include="Mouse\Effects\Custom2.cs" />
+    <Compile Include="Mouse\Effects\NoEffect.cs" />
+    <Compile Include="Mouse\Effects\Reactive.cs" />
+    <Compile Include="Mouse\Effects\Spectrumcycling.cs" />
+    <Compile Include="Mouse\Effects\Static.cs" />
+    <Compile Include="Mouse\Effects\Wave.cs" />
     <Compile Include="NativeRazerApi.cs" />
     <Compile Include="NativeWin32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RazerApiException.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

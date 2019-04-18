@@ -67,6 +67,12 @@
     <Compile Include="Keyboard\Effects\StarLight.cs" />
     <Compile Include="Keyboard\Effects\Static.cs" />
     <Compile Include="Keyboard\Effects\Wave.cs" />
+    <Compile Include="KeyPad\Definitions.cs" />
+    <Compile Include="KeyPad\Effects\Breathing.cs" />
+    <Compile Include="KeyPad\Effects\Custom.cs" />
+    <Compile Include="KeyPad\Effects\Reactive.cs" />
+    <Compile Include="KeyPad\Effects\Static.cs" />
+    <Compile Include="KeyPad\Effects\Wave.cs" />
     <Compile Include="MousePad\Definitions.cs" />
     <Compile Include="MousePad\Effects\Breathing.cs" />
     <Compile Include="MousePad\Effects\Custom.cs" />

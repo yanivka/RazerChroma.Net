@@ -24,42 +24,5 @@ namespace RazerChroma.Net.MousePad
             Invalid
         }
  
-         // Chroma mousepad effects
-         public struct Breathing
-         {
-            public enum _Type
-            {
-                TwoColors = 1,
-                RandomColors,
-                Invaild
-            }
-            public _Type Type;
-            public NativeWin32.ColorRef Color1;
-            public NativeWin32.ColorRef Color2;
-        }
- 
-         public struct Custom
-        {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxLeds))]
-            public NativeWin32.ColorRef[] Color;
-        }
- 
-         public struct Static
-        {
-            public NativeWin32.ColorRef Color;
-        }
- 
-         public struct Wave
-        {
-            public enum _Direction
-            {
-                None = 0,
-                LeftToRight,
-                RightToLeft,
-                Invalid
-            }
-            public _Direction Direction;                    
-         }
-
     }
 }

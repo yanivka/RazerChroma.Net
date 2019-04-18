@@ -10,8 +10,8 @@ namespace RazerChroma.Net.Keyboard
     public struct CustomKey
          {
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            NativeWin32.ColorRef[][]  Color;        
+            public NativeWin32.ColorRef[][]  Color;        
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            NativeWin32.ColorRef[][]  Key;          
+            public NativeWin32.ColorRef[][]  Key;          
          }
 }

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Keyboard
+namespace RazerChroma.Net.MousePad
 {
     public struct Static
         {

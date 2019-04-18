@@ -18,6 +18,6 @@ namespace RazerChroma.Net.Keyboard
                 Invalid
             }
             public _Duration Duration;             
-            NativeWin32.ColorRef  Color;
+            public NativeWin32.ColorRef  Color;
          }
 }

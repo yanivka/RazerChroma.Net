@@ -23,58 +23,5 @@ namespace RazerChroma.Net.KeyPad
             Wave,
             Invalid
         }
- 
-         // Chroma keypad effects
-         public struct Breathing
-        {
-            public enum _Type
-            {
-                TWO_COLORS = 1,
-                RANDOM_COLORS,
-                INVALID
-            }
-            public _Type Type;
-            public NativeWin32.ColorRef Color1;
-            public NativeWin32.ColorRef Color2;
-        }
- 
-         public struct Custom
-         {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-            public NativeWin32.ColorRef[][] Color; 
-         }
- 
-         public struct Reactive
-        {
-            public enum _Duration
-            {
-                None = 0,
-                Short,
-                Medium,
-                Long,
-                Invalid
-            }
-            public _Duration Duration;             
- 
-             public NativeWin32.ColorRef Color;
-        }
- 
-         public struct Static
-        {
-            public NativeWin32.ColorRef Color;
-        }
- 
-         public struct Wave
-        {
-            public enum _Direction
-            {
-                None = 0,
-                Left_to_right,
-                Right_to_left,
-                Invalid
-            }
-            public _Direction Direction;                    
-         }
-
     }
 }

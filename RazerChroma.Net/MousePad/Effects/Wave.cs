@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.MousePad
+namespace RazerChroma.Net.MousePad.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Wave
@@ -18,5 +18,10 @@ namespace RazerChroma.Net.MousePad
             Invalid
         }
         public _Direction Direction;
+
+        public Wave(_Direction direction)
+        {
+            Direction = direction;
+        }
     }
 }

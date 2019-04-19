@@ -18,6 +18,14 @@ namespace RazerChroma.Net
             public byte G;
             public byte B;
             public byte A;
+
+            public ColorRef(byte r, byte g, byte b, byte a)
+            {
+                R = r;
+                G = g;
+                B = b;
+                A = a;
+            }
         }
 
         [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Unicode, EntryPoint= "LoadLibrary")]

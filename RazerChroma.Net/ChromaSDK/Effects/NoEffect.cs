@@ -12,6 +12,12 @@ namespace RazerChroma.Net.ChromaSDK.Effects
     {
         public uint Size;
         public uint Param;
+
+        public NoEffect(uint size, uint param)
+        {
+            Size = size;
+            Param = param;
+        }
     }
 
 }

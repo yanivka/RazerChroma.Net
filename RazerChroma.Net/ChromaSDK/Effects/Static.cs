@@ -13,5 +13,12 @@ namespace RazerChroma.Net.ChromaSDK.Effects
         public uint Size;
         public uint Param;
         public NativeWin32.ColorRef Color;
+
+        public Static(uint size, uint param, NativeWin32.ColorRef color)
+        {
+            Size = size;
+            Param = param;
+            Color = color;
+        }
     }
 }

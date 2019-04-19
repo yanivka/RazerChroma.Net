@@ -21,5 +21,12 @@ namespace RazerChroma.Net.ChromaSDK.Effects
         public uint Size;
         public uint Param;
         public _Direction Direction;
+
+        public Wave(uint size, uint param, _Direction direction)
+        {
+            Size = size;
+            Param = param;
+            Direction = direction;
+        }
     }
 }

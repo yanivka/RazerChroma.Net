@@ -13,7 +13,7 @@ namespace RazerChroma.Net.ChromaSDK
     public struct AppInfoType
     {
         [StructLayout(LayoutKind.Sequential)]
-        public struct Author
+        public struct _Author
         {
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
             public char[] Name;
@@ -25,7 +25,7 @@ namespace RazerChroma.Net.ChromaSDK
         public char[] Title;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1024)]
         public char[] Description;
-        public Author CurrentAuthor;
+        public _Author Author;
         public uint SupportedDevice;
         public uint  Category;
     }

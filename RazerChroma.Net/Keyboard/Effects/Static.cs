@@ -5,11 +5,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Keyboard
+namespace RazerChroma.Net.Keyboard.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Static
     {
         public NativeWin32.ColorRef Color;
+
+        public Static(NativeWin32.ColorRef color)
+        {
+            Color = color;
+        }
     }
 }

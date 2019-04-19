@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.KeyPad
+namespace RazerChroma.Net.KeyPad.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Reactive
@@ -21,5 +21,11 @@ namespace RazerChroma.Net.KeyPad
         public _Duration Duration;
 
         public NativeWin32.ColorRef Color;
+
+        public Reactive(_Duration duration, NativeWin32.ColorRef color)
+        {
+            Duration = duration;
+            Color = color;
+        }
     }
 }

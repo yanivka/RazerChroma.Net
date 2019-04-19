@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RazerChroma.Net;
+using System.Runtime.InteropServices;
 
 namespace RazerChromaTester
 {
@@ -13,6 +14,9 @@ namespace RazerChromaTester
         {
 
             NativeRazerApi api = new NativeRazerApi();
+
+         
+   
 
 
             Console.WriteLine("Done");

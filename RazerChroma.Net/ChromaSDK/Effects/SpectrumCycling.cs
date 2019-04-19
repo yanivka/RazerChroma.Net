@@ -12,5 +12,11 @@ namespace RazerChroma.Net.ChromaSDK.Effects
     {
         public uint Size;
         public uint Param;
+
+        public SpectrumCycling(uint size, uint param)
+        {
+            Size = size;
+            Param = param;
+        }
     }
 }

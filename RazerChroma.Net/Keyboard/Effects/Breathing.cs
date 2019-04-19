@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Keyboard
+namespace RazerChroma.Net.Keyboard.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Breathing
@@ -19,5 +19,12 @@ namespace RazerChroma.Net.Keyboard
         public _Type Type;
         NativeWin32.ColorRef Color1;
         NativeWin32.ColorRef Color2;
+
+        public Breathing(_Type type, NativeWin32.ColorRef color1, NativeWin32.ColorRef color2)
+        {
+            Type = type;
+            Color1 = color1;
+            Color2 = color2;
+        }
     }
 }

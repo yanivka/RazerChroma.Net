@@ -27,5 +27,15 @@ namespace RazerChroma.Net.ChromaSDK.Effects
         public NativeWin32.ColorRef Color1;
         public NativeWin32.ColorRef Color2;
         public _Duration Duration;
+
+        public StarLight(uint size, uint param, _Type type, NativeWin32.ColorRef color1, NativeWin32.ColorRef color2, _Duration duration)
+        {
+            Size = size;
+            Param = param;
+            Type = type;
+            Color1 = color1;
+            Color2 = color2;
+            Duration = duration;
+        }
     }
 }

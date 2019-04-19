@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Keyboard
+namespace RazerChroma.Net.Keyboard.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct StarLight
@@ -26,5 +26,12 @@ namespace RazerChroma.Net.Keyboard
         NativeWin32.ColorRef Color2;
         public _Duration Duration;
 
+        public StarLight(_Type type, NativeWin32.ColorRef color1, NativeWin32.ColorRef color2, _Duration duration)
+        {
+            Type = type;
+            Color1 = color1;
+            Color2 = color2;
+            Duration = duration;
+        }
     }
 }

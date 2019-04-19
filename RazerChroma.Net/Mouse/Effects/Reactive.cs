@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Mouse
+namespace RazerChroma.Net.Mouse.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Reactive
@@ -20,5 +20,12 @@ namespace RazerChroma.Net.Mouse
         public Definitions.RzLed LEDId;
         public _Duration Duration;
         public NativeWin32.ColorRef Color;
+
+        public Reactive(Definitions.RzLed lEDId, _Duration duration, NativeWin32.ColorRef color)
+        {
+            LEDId = lEDId;
+            Duration = duration;
+            Color = color;
+        }
     }
 }

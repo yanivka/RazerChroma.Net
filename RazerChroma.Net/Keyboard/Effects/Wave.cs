@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Keyboard
+namespace RazerChroma.Net.Keyboard.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Wave
@@ -18,5 +18,10 @@ namespace RazerChroma.Net.Keyboard
             Invalid
         }
         public _Direction Direction;
+
+        public Wave(_Direction direction)
+        {
+            Direction = direction;
+        }
     }
 }

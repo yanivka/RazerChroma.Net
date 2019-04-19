@@ -23,6 +23,15 @@ namespace RazerChroma.Net.ChromaSDK.Effects
         public _Type Type;
         public NativeWin32.ColorRef Color1;
         public NativeWin32.ColorRef Color2;
+
+        public Breathing(uint size, uint param, _Type type, NativeWin32.ColorRef color1, NativeWin32.ColorRef color2)
+        {
+            Size = size;
+            Param = param;
+            Type = type;
+            Color1 = color1;
+            Color2 = color2;
+        }
     }
 
 }

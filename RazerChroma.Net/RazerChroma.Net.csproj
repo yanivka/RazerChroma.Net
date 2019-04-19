@@ -58,6 +58,7 @@
     <Compile Include="ChromaSDK\Effects\Static.cs" />
     <Compile Include="ChromaSDK\Effects\Wave.cs" />
     <Compile Include="ChromaSDK\Definitions.cs" />
+    <Compile Include="Effect.cs" />
     <Compile Include="HeadSet\Definitions.cs" />
     <Compile Include="HeadSet\Effects\Breathing.cs" />
     <Compile Include="HeadSet\Effects\Custom.cs" />

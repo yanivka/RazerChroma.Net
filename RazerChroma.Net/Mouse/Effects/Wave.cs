@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazerChroma.Net.Mouse
+namespace RazerChroma.Net.Mouse.Effects
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Wave
@@ -16,5 +16,10 @@ namespace RazerChroma.Net.Mouse
             BackToFront
         }
         public _Direction Direction;
+
+        public Wave(_Direction direction)
+        {
+            Direction = direction;
+        }
     }
 }

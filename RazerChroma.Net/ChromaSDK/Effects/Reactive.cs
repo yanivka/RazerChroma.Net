@@ -21,5 +21,13 @@ namespace RazerChroma.Net.ChromaSDK.Effects
         public uint Param;
         public _Duration Duration;
         public NativeWin32.ColorRef Color;
+
+        public Reactive(uint size, uint param, _Duration duration, NativeWin32.ColorRef color)
+        {
+            Size = size;
+            Param = param;
+            Duration = duration;
+            Color = color;
+        }
     }
 }

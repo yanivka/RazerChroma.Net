@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RazerChroma.Net
 {
-    public class NativeRazerApi
+    public class NativeRazerApi : IDisposable
     {
 
         private IntPtr _chromaSdkDll;
@@ -26,29 +27,42 @@ namespace RazerChroma.Net
         private IntPtr _functionPointerUnRegisterEventNotification;
         private IntPtr _functionPointerQueryDevice;
 
-        private Func<RzResult> _init;
-        private Func<RzResult> _unInit;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate RzResult _delegate_rzresult();
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate RzResult _delegate_rzresult_intptr(IntPtr windowHandle);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate RzResult _delegate_rzresult_guid_ref_deviceIntoType(Guid deviceId, out ChromaSDK.DeviceInfoType deviceInfo);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate RzResult _delegate_rzresult_guid(Guid effectId);
 
+        private _delegate_rzresult _init;
+        private _delegate_rzresult _unInit;
+        private _delegate_rzresult _unregisterEventNotification;
+        private _delegate_rzresult_intptr _registerEventNotification;
+        private _delegate_rzresult_guid_ref_deviceIntoType _quertyDevice;
+        private _delegate_rzresult_guid _deleteEffect;
+        private _delegate_rzresult_guid _setEffect;
 
-        public enum RzResult : long
+        public enum RzResult : uint
         {
-            RZRESULT_INVALID = -1,
-            RZRESULT_SUCCESS=   0,
-            RZRESULT_ACCESS_DENIED  = 5,
-            RZRESULT_INVALID_HANDLE  = 6,
-            RZRESULT_NOT_SUPPORTED  = 50,
-            RZRESULT_INVALID_PARAMETER =  87,
-            RZRESULT_SERVICE_NOT_ACTIVE =  1062,
-            RZRESULT_SINGLE_INSTANCE_APP =  1152,
-            RZRESULT_DEVICE_NOT_CONNECTED =  1167,
-            RZRESULT_NOT_FOUND  = 1168,
-            RZRESULT_REQUEST_ABORTED =  1235,
-            RZRESULT_ALREADY_INITIALIZED  = 1247,
-            RZRESULT_RESOURCE_DISABLED =  4309,
-            RZRESULT_DEVICE_NOT_AVAILABLE =  4319,
-            RZRESULT_NOT_VALID_STATE  = 5023,
-            RZRESULT_NO_MORE_ITEMS =  259,
-            RZRESULT_FAILED  = 2147500037
+            Invalid = 0xffffffff,
+            Success=   0,
+            AccessDenied  = 5,
+            InvalidHandle  = 6,
+            NotSupported  = 50,
+            InvalidParameter =  87,
+            ServiceNotActive =  1062,
+            SingleInstanceApp =  1152,
+            DeviceNotConnected =  1167,
+            NotFound  = 1168,
+            RequestAborted =  1235,
+            AlreadyInitialized  = 1247,
+            ResourceDisabled =  4309,
+            DeviceNotAvailable =  4319,
+            NotValidState  = 5023,
+            NoMoreItems =  259,
+            Failed  = 2147500037
     }
 
         public NativeRazerApi()
@@ -65,19 +79,71 @@ namespace RazerChroma.Net
         }
         private void LoadFunctions()
         {
+           
+
             _functionPointerInit = NativeWin32.GetProcAddress(this._chromaSdkDll, "Init");
+            this._init = (_delegate_rzresult)Marshal.GetDelegateForFunctionPointer(_functionPointerInit, typeof(_delegate_rzresult));
+            _functionPointerUnInit = NativeWin32.GetProcAddress(this._chromaSdkDll, "UnInit");
+            this._unInit = (_delegate_rzresult)Marshal.GetDelegateForFunctionPointer(_functionPointerUnInit, typeof(_delegate_rzresult));
+            _functionPointerRegisterEventNotification = NativeWin32.GetProcAddress(this._chromaSdkDll, "RegisterEventNotification");
+            this._registerEventNotification = (_delegate_rzresult_intptr)Marshal.GetDelegateForFunctionPointer(_functionPointerRegisterEventNotification, typeof(_delegate_rzresult_intptr));
+            _functionPointerUnRegisterEventNotification = NativeWin32.GetProcAddress(this._chromaSdkDll, "UnregisterEventNotification");
+            this._unregisterEventNotification = (_delegate_rzresult)Marshal.GetDelegateForFunctionPointer(_functionPointerUnRegisterEventNotification, typeof(_delegate_rzresult));
+            _functionPointerQueryDevice = NativeWin32.GetProcAddress(this._chromaSdkDll, "QueryDevice");
+            this._quertyDevice = (_delegate_rzresult_guid_ref_deviceIntoType)Marshal.GetDelegateForFunctionPointer(_functionPointerQueryDevice, typeof(_delegate_rzresult_guid_ref_deviceIntoType));
 
+            _functionPointerSetEffect = NativeWin32.GetProcAddress(this._chromaSdkDll, "Init");
+            this._setEffect = (_delegate_rzresult_guid)Marshal.GetDelegateForFunctionPointer(_functionPointerSetEffect, typeof(_delegate_rzresult_guid));
+            _functionPointerDeleteEffect = NativeWin32.GetProcAddress(this._chromaSdkDll, "UnInit");
+            this._deleteEffect = (_delegate_rzresult_guid)Marshal.GetDelegateForFunctionPointer(_functionPointerDeleteEffect, typeof(_delegate_rzresult_guid));
+
+
+            this.Init();
+            Console.WriteLine(this.QueryDevice(ChromaSDK.Definitions.BlackWidowChroma).Connected);
         }
 
-
-        public void Init()
+        public void SetEffect(Guid EffectId)
         {
-            
+            RzResult result = this._setEffect(EffectId);
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "SetEffect");
         }
-        public void UnInit()
+        public void DeleteEffect(Guid EffectId)
         {
-
+            RzResult result = this._deleteEffect(EffectId);
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "DeleteEffect");
+        }
+        public ChromaSDK.DeviceInfoType QueryDevice(Guid DeviceId)
+        {
+            RzResult result = this._quertyDevice(DeviceId, out ChromaSDK.DeviceInfoType returnValue);
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "QueryDevice");
+            return returnValue;
+        }
+        public void RegisterEventNotification(IntPtr windowHandle)
+        {
+            RzResult result = this._registerEventNotification(windowHandle);
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "RegisterEventNotification");
+        }
+        public void UnregisterEventNotification()
+        {
+            RzResult result = this._unregisterEventNotification();
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "UnregisterEventNotification");
+        }
+        private void Init()
+        {
+            RzResult result = this._init();
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "Init");            
+        }
+        private void UnInit()
+        {
+            IsDisposed = true;
+            RzResult result = this._unInit();
+            if (result != RzResult.Success) throw RazerApiException.Create(result, "Init");
         }
 
+        bool IsDisposed = false;
+        public void Dispose()
+        {
+            this.UnInit();
+        }
     }
 }

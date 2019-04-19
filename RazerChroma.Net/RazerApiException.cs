@@ -13,53 +13,54 @@ namespace RazerChroma.Net
         public readonly string ErrorText;
         public readonly string FunctionName;
 
-        private RazerApiException(NativeRazerApi.RzResult errorCode, string message,  Exception innerException) : base(message, innerException)
+        private RazerApiException(NativeRazerApi.RzResult errorCode, string functionName, string message,  Exception innerException) : base(message, innerException)
         {
             this.ErrorText = GetErrorText(errorCode);
-            this.ErrorCode = errorCode;      
+            this.ErrorCode = errorCode;
+            this.FunctionName = functionName;
         }
 
-        public static RazerApiException Create(NativeRazerApi.RzResult errorCode, string message = null, Exception innerException = null)
+        public static RazerApiException Create(NativeRazerApi.RzResult errorCode, string functionName, string message = null, Exception innerException = null)
         {
-            return new RazerApiException(errorCode, message ?? $"an error occured in the Razer Chroma api {{{errorCode}}}, {GetErrorText(errorCode)}", innerException);
+            return new RazerApiException(errorCode, functionName, message ?? $"an error occured in the Razer Chroma api {{{errorCode}}}, {GetErrorText(errorCode)}", innerException);
         }
         public static string GetErrorText(NativeRazerApi.RzResult errorCode)
         {
             switch (errorCode)
             {
-                case NativeRazerApi.RzResult.RZRESULT_INVALID:
+                case NativeRazerApi.RzResult.Invalid:
                     return "Invalid";
-                case NativeRazerApi.RzResult.RZRESULT_SUCCESS:
+                case NativeRazerApi.RzResult.Success:
                     return "Success";
-                case NativeRazerApi.RzResult.RZRESULT_ACCESS_DENIED:
+                case NativeRazerApi.RzResult.AccessDenied:
                     return "Access denied";
-                case NativeRazerApi.RzResult.RZRESULT_INVALID_HANDLE:
+                case NativeRazerApi.RzResult.InvalidHandle:
                     return "Invalid handle";
-                case NativeRazerApi.RzResult.RZRESULT_NOT_SUPPORTED:
+                case NativeRazerApi.RzResult.NotSupported:
                     return "Not supported";
-                case NativeRazerApi.RzResult.RZRESULT_INVALID_PARAMETER:
+                case NativeRazerApi.RzResult.InvalidParameter:
                     return "Invalid parameter";
-                case NativeRazerApi.RzResult.RZRESULT_SERVICE_NOT_ACTIVE:
+                case NativeRazerApi.RzResult.ServiceNotActive:
                     return "The service has not been started";
-                case NativeRazerApi.RzResult.RZRESULT_SINGLE_INSTANCE_APP:
+                case NativeRazerApi.RzResult.SingleInstanceApp:
                     return "Cannot start more than one instance of the specified program";
-                case NativeRazerApi.RzResult.RZRESULT_DEVICE_NOT_CONNECTED:
+                case NativeRazerApi.RzResult.DeviceNotConnected:
                     return "Device not connected";
-                case NativeRazerApi.RzResult.RZRESULT_NOT_FOUND:
+                case NativeRazerApi.RzResult.NotFound:
                     return "Element not found";
-                case NativeRazerApi.RzResult.RZRESULT_REQUEST_ABORTED:
+                case NativeRazerApi.RzResult.RequestAborted:
                     return "Request aborted";
-                case NativeRazerApi.RzResult.RZRESULT_ALREADY_INITIALIZED:
+                case NativeRazerApi.RzResult.AlreadyInitialized:
                     return "An attempt was made to perform an initialization operation when initialization has already been completed";
-                case NativeRazerApi.RzResult.RZRESULT_RESOURCE_DISABLED:
+                case NativeRazerApi.RzResult.ResourceDisabled:
                     return "Resource not available or disabled";
-                case NativeRazerApi.RzResult.RZRESULT_DEVICE_NOT_AVAILABLE:
+                case NativeRazerApi.RzResult.DeviceNotAvailable:
                     return "Device not available or supported";
-                case NativeRazerApi.RzResult.RZRESULT_NOT_VALID_STATE:
+                case NativeRazerApi.RzResult.NotValidState:
                     return "The group or resource is not in the correct state to perform the requested operation";
-                case NativeRazerApi.RzResult.RZRESULT_NO_MORE_ITEMS:
+                case NativeRazerApi.RzResult.NoMoreItems:
                     return "No more items";
-                case NativeRazerApi.RzResult.RZRESULT_FAILED:
+                case NativeRazerApi.RzResult.Failed:
                     return "General failure";
                 default:
                     return "UNKNOWN";

@@ -40,17 +40,17 @@ namespace RazerChromaFrameEngine
         }
         public void SetKey(Point point, RazerChroma.Net.NativeWin32.ColorRef color)
         {
-            rawEffect.Color[point.Y, point.X] = color;
+            rawEffect.Color[point.Y, point.X].Add(color);
         }
         public void SetKey(int row, int col, RazerChroma.Net.NativeWin32.ColorRef color)
         {
-            rawEffect.Color[row,col] = color;
+            rawEffect.Color[row,col].Add(color);
         }
 
         public void SetKeys(IEnumerable<RazerChroma.Net.Keyboard.Definitions.RzKey> keys, RazerChroma.Net.NativeWin32.ColorRef color)
         {
             foreach (RazerChroma.Net.Keyboard.Definitions.RzKey singleKey in keys)
-                rawEffect.Color[((int)singleKey & 0xff00) >> 8, (int)singleKey & 0xff] = color;
+                rawEffect.Color[((int)singleKey & 0xff00) >> 8, (int)singleKey & 0xff].Add(color);
         }
         public void SetKeys(IEnumerable<RazerChroma.Net.Keyboard.Definitions.RzKey> keys, Color color)
         {
@@ -63,7 +63,7 @@ namespace RazerChromaFrameEngine
         public void SetKeys(IEnumerable<Point> points, RazerChroma.Net.NativeWin32.ColorRef color)
         {
             foreach(Point singlePoint in points)
-                rawEffect.Color[singlePoint.Y, singlePoint.X] = color;         
+                rawEffect.Color[singlePoint.Y, singlePoint.X].Add(color);         
         }
         public void SetKeys(int row1, int col1, int row2, int col2, Color color)
         {
@@ -77,7 +77,7 @@ namespace RazerChromaFrameEngine
             int MaxRow = (row1 > row2) ? row1 : row2;
             for(int currentRow = minRow; currentRow <= MaxRow; currentRow++)
                 for(int currentCol = minCol; currentCol <= MaxCol; currentCol ++)
-                    rawEffect.Color[currentRow, currentCol] = color;
+                    rawEffect.Color[currentRow, currentCol].Add(color);
         }
         public void SetKeys(Point p1, Point p2, Color color)
         {

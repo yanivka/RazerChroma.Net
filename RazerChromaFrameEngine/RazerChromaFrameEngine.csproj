@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Keyborad\KeyboradFrame.cs" />
+    <Compile Include="ColorMath.cs" />
+    <Compile Include="MouseFrame.cs" />
+    <Compile Include="KeyboradFrame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -55,8 +55,13 @@ namespace RazerChromaTester
 
 
             KeyboradFrame keyboardFrame = new KeyboradFrame(api);
+            MouseFrame mouseFrame = new MouseFrame(api);
             keyboardFrame.SetKey(0, 1, Color.Red);
             keyboardFrame.SetKey(Definitions.RzKey.F, Color.Green);
+
+            mouseFrame.SetKey(RazerChroma.Net.Mouse.Definitions.RzLed2.Scrollwheel, Color.Purple);
+
+            mouseFrame.Update();
             keyboardFrame.Update();
             Console.WriteLine("Done, Click an to Continue...");
 

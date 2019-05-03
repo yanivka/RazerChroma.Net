@@ -52,7 +52,7 @@ namespace RazerChromaTester
 
             Console.WriteLine("First test, Please check that your devices have the right light color, If you dont have that device it is ok.");
             Console.WriteLine("Done, Click an to Continue...");
-
+            Console.ReadKey();
 
             KeyboradFrame keyboardFrame = new KeyboradFrame(api);
             MouseFrame mouseFrame = new MouseFrame(api);

@@ -22,11 +22,11 @@ namespace RazerChromaFrameEngine
             this.lastEffect = null;
         }
         
-        public void SetKey(Keyborad.KeyboradKey key ,RazerChroma.Net.NativeWin32.ColorRef color)
+        public void SetKey(RazerChroma.Net.Keyboard.Definitions.RzKey key ,RazerChroma.Net.NativeWin32.ColorRef color)
         {
             SetKey(((int)key & 0xff00) >> 8, (int)key & 0xff, color);
         }
-        public void SetKey(Keyborad.KeyboradKey key, Color color)
+        public void SetKey(RazerChroma.Net.Keyboard.Definitions.RzKey key, Color color)
         {
             SetKey(((int)key & 0xff00) >> 8, (int)key & 0xff, color);
         }
@@ -47,12 +47,12 @@ namespace RazerChromaFrameEngine
             rawEffect.Color[row,col] = color;
         }
 
-        public void SetKeys(IEnumerable<Keyborad.KeyboradKey> keys, RazerChroma.Net.NativeWin32.ColorRef color)
+        public void SetKeys(IEnumerable<RazerChroma.Net.Keyboard.Definitions.RzKey> keys, RazerChroma.Net.NativeWin32.ColorRef color)
         {
-            foreach (Keyborad.KeyboradKey singleKey in keys)
+            foreach (RazerChroma.Net.Keyboard.Definitions.RzKey singleKey in keys)
                 rawEffect.Color[((int)singleKey & 0xff00) >> 8, (int)singleKey & 0xff] = color;
         }
-        public void SetKeys(IEnumerable<Keyborad.KeyboradKey> keys, Color color)
+        public void SetKeys(IEnumerable<RazerChroma.Net.Keyboard.Definitions.RzKey> keys, Color color)
         {
             SetKeys(keys, new RazerChroma.Net.NativeWin32.ColorRef(color.R, color.G, color.B, color.A));
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RazerChroma.Net;
+using RazerChroma.Net.Keyboard;
 using System.Runtime.InteropServices;
 using RazerChromaDevice;
 using System.IO;
@@ -55,7 +56,7 @@ namespace RazerChromaTester
 
             KeyboradFrame keyboardFrame = new KeyboradFrame(api);
             keyboardFrame.SetKey(0, 1, Color.Red);
-            keyboardFrame.SetKey(RazerChromaFrameEngine.Keyborad.KeyboradKey.F, Color.Green);
+            keyboardFrame.SetKey(Definitions.RzKey.F, Color.Green);
             keyboardFrame.Update();
             Console.WriteLine("Done, Click an to Continue...");
 

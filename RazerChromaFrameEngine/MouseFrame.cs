@@ -20,6 +20,16 @@ namespace RazerChromaFrameEngine
             this._api = api;
             this.rawEffect = new RazerChroma.Net.Mouse.Effects.Custom2(new NativeWin32.ColorRef[RazerChroma.Net.Mouse.Definitions.MaxRow, RazerChroma.Net.Mouse.Definitions.MaxCol]);
             this.lastEffect = null;
+            for (int row = 0; row < RazerChroma.Net.Mouse.Definitions.MaxRow; row++)
+            {
+                for (int col = 0; col < RazerChroma.Net.Mouse.Definitions.MaxCol; col++)
+                {
+                    this.rawEffect.Color[row, col].A = 255;
+                    this.rawEffect.Color[row, col].R = 0;
+                    this.rawEffect.Color[row, col].G = 0;
+                    this.rawEffect.Color[row, col].B = 0;
+                }
+            }
         }
         
         public void SetKey(RazerChroma.Net.Mouse.Definitions.RzLed2 key ,RazerChroma.Net.NativeWin32.ColorRef color)

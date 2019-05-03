@@ -20,6 +20,18 @@ namespace RazerChromaFrameEngine
             this._api = api;
             this.rawEffect = new RazerChroma.Net.Keyboard.Effects.Custom(new NativeWin32.ColorRef[RazerChroma.Net.Keyboard.Definitions.MaxRow, RazerChroma.Net.Keyboard.Definitions.MaxCol]);
             this.lastEffect = null;
+            for (int row = 0; row < RazerChroma.Net.Keyboard.Definitions.MaxRow; row++)
+            {
+                for (int col = 0; col < RazerChroma.Net.Keyboard.Definitions.MaxCol; col++)
+                {
+                    this.rawEffect.Color[row, col].A = 255;
+                    this.rawEffect.Color[row, col].R = 0;
+                    this.rawEffect.Color[row, col].G = 0;
+                    this.rawEffect.Color[row, col].B = 0;
+                }
+            }
+                    
+
         }
         
         public void SetKey(RazerChroma.Net.Keyboard.Definitions.RzKey key ,RazerChroma.Net.NativeWin32.ColorRef color)

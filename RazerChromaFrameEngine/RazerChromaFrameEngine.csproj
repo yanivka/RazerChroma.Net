@@ -48,6 +48,7 @@
     <Compile Include="ColorMath.cs" />
     <Compile Include="HeadsetFrame.cs" />
     <Compile Include="KeypadFrame.cs" />
+    <Compile Include="ChromaLink.cs" />
     <Compile Include="MousepadFrame.cs" />
     <Compile Include="MouseFrame.cs" />
     <Compile Include="KeyboradFrame.cs" />

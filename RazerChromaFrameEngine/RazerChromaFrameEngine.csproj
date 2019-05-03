@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ColorMath.cs" />
     <Compile Include="HeadsetFrame.cs" />
+    <Compile Include="MousepadFrame.cs" />
     <Compile Include="MouseFrame.cs" />
     <Compile Include="KeyboradFrame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

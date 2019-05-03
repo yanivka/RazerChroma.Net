@@ -333,6 +333,20 @@ namespace RazerChroma.Net
             if (result != RzResult.Success) throw RazerApiException.Create(result, "QueryDevice");
             return returnValue;
         }
+        public ChromaSDK.DeviceInfoType TryQueryDevice(Guid DeviceId, out bool Success)
+        {
+            RzResult result = this._quertyDevice(DeviceId, out ChromaSDK.DeviceInfoType returnValue);
+            if (result != RzResult.Success)
+            {
+                Success = false;
+                return new ChromaSDK.DeviceInfoType();
+            }
+            else
+            {
+                Success = true;
+                return returnValue;
+            }
+        }
         public void RegisterEventNotification(IntPtr windowHandle)
         {
             RzResult result = this._registerEventNotification(windowHandle);

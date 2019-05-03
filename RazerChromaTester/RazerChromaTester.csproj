@@ -15,7 +15,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,19 +23,22 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,9 +54,117 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Devices\OverwatchRazerDeathAdderElite.Device\OverwatchRazerDeathAdderElite.Device.csproj">
+      <Project>{ced3fca0-cd24-4d52-a35a-e6066a610e08}</Project>
+      <Name>OverwatchRazerDeathAdderElite.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBlackWidowChromaV2.Device\RazerBlackWidowChromaV2.Device.csproj">
+      <Project>{f2496035-51bc-46dc-b57e-678a66f192b9}</Project>
+      <Name>RazerBlackWidowChromaV2.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBlackWidowTournamentEditionChroma.Device\RazerBlackWidowTournamentEditionChroma.Device.csproj">
+      <Project>{ee1a0efb-56ee-42b3-9cc7-2dd83dafe80d}</Project>
+      <Name>RazerBlackWidowTournamentEditionChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBlackWidowXChroma.Device\RazerBlackWidowXChroma.Device.csproj">
+      <Project>{0b5e10ee-9bf4-454c-83f2-5478691fc579}</Project>
+      <Name>RazerBlackWidowXChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBlackWidowXTournamentEditionChroma.Device\RazerBlackWidowXTournamentEditionChroma.Device.csproj">
+      <Project>{5afe0f4e-be5c-44bd-a94e-36e6971184ae}</Project>
+      <Name>RazerBlackWidowXTournamentEditionChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBladePro17.Device\RazerBladePro17.Device.csproj">
+      <Project>{e2b73402-a508-486a-b509-50e3265335d7}</Project>
+      <Name>RazerBladePro17.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerBladeStealth13.Device\RazerBladeStealth13.Device.csproj">
+      <Project>{70c377a6-41b4-4dc7-873e-4d0a72d83453}</Project>
+      <Name>RazerBladeStealth13.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerCoreV2.Device\RazerCoreV2.Device.csproj">
+      <Project>{a3f232aa-f930-4fbf-bf30-77a8d21191cb}</Project>
+      <Name>RazerCoreV2.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerCoreXChroma.Device\RazerCoreXChroma.Device.csproj">
+      <Project>{ebb64595-acdb-40b4-a632-b2ea8109e9fd}</Project>
+      <Name>RazerCoreXChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerCynosaChroma.Device\RazerCynosaChroma.Device.csproj">
+      <Project>{1ab4bd28-b50f-44fc-a55a-85b160bfa648}</Project>
+      <Name>RazerCynosaChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerCynosaChromaPro.Device\RazerCynosaChromaPro.Device.csproj">
+      <Project>{9b10d23e-c1c5-40f3-b097-fd120d8fc225}</Project>
+      <Name>RazerCynosaChromaPro.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerDeathAdderElite.Device\RazerDeathAdderElite.Device.csproj">
+      <Project>{7bd6af58-4feb-46b1-9dd8-155adfcec56e}</Project>
+      <Name>RazerDeathAdderElite.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerFireflyHardEdition.Device\RazerFireflyHardEdition.Device.csproj">
+      <Project>{d48913d3-ad22-475d-bf64-19499205a443}</Project>
+      <Name>RazerFireflyHardEdition.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerGoliathusChroma.Device\RazerGoliathusChroma.Device.csproj">
+      <Project>{92e7471c-69a6-4bb6-a9be-b06c168878af}</Project>
+      <Name>RazerGoliathusChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerLaptopStandChroma.Device\RazerLaptopStandChroma.Device.csproj">
+      <Project>{dbbc135b-003c-4cb1-b301-51cc9a5b444e}</Project>
+      <Name>RazerLaptopStandChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerMambaTournamentEdition.Device\RazerMambaTournamentEdition.Device.csproj">
+      <Project>{4880fe89-c8f4-474f-a467-bd5b76e00e68}</Project>
+      <Name>RazerMambaTournamentEdition.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerNagaChroma.Device\RazerNagaChroma.Device.csproj">
+      <Project>{7d97f5bb-92c6-4288-81cf-5ffcf4e77275}</Project>
+      <Name>RazerNagaChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerNagaEpicChroma.Device\RazerNagaEpicChroma.Device.csproj">
+      <Project>{23c641bb-b6d9-494d-b1c0-bedabad28879}</Project>
+      <Name>RazerNagaEpicChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerNagaHexV2.Device\RazerNagaHexV2.Device.csproj">
+      <Project>{6f5bb761-cc19-4812-ae96-0e061a2cbe2d}</Project>
+      <Name>RazerNagaHexV2.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerNommoChroma.Device\RazerNommoChroma.Device.csproj">
+      <Project>{7e9f8128-6aed-4182-86a0-51590c2e2aa7}</Project>
+      <Name>RazerNommoChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerOrbweaverChroma.Device\RazerOrbweaverChroma.Device.csproj">
+      <Project>{58dcf031-4991-47b3-b083-4d905ca91f6c}</Project>
+      <Name>RazerOrbweaverChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerOrnataChroma.Device\RazerOrnataChroma.Device.csproj">
+      <Project>{50cc82f5-7e52-4e18-b6a5-7c5dd11ade82}</Project>
+      <Name>RazerOrnataChroma.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\RazerTartarusV2.Device\RazerTartarusV2.Device.csproj">
+      <Project>{0ca8d31d-f8b3-45f6-850f-5a174fb6f12c}</Project>
+      <Name>RazerTartarusV2.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\TheNewRazerBlade15.Device\TheNewRazerBlade15.Device.csproj">
+      <Project>{7a163a5b-96f1-44f4-86aa-e610f93e57d3}</Project>
+      <Name>TheNewRazerBlade15.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Devices\TheNewRazerBladeStealth13.Device\TheNewRazerBladeStealth13.Device.csproj">
+      <Project>{55f31249-d1aa-4f87-a515-bb1b2f05a823}</Project>
+      <Name>TheNewRazerBladeStealth13.Device</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RazerChroma.Net\RazerChroma.Net.csproj">
       <Project>{a67dcc95-e385-4831-9917-8176e09694c4}</Project>
       <Name>RazerChroma.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RazerChromaDevice\RazerChromaDevice.csproj">
+      <Project>{08c2289b-55f6-430a-b0a7-7524f998c44a}</Project>
+      <Name>RazerChromaDevice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RazerChromaFrameEngine\RazerChromaFrameEngine.csproj">
+      <Project>{809327e0-d91c-4f77-a1ee-7d242d59e433}</Project>
+      <Name>RazerChromaFrameEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

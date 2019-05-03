@@ -9,7 +9,7 @@ namespace RazerChromaFrameEngine
     public static class ColorMath
     {
 
-        public static void Add(this RazerChroma.Net.NativeWin32.ColorRef baseColor, RazerChroma.Net.NativeWin32.ColorRef drawOnTop)
+        public static void Add(this ref RazerChroma.Net.NativeWin32.ColorRef baseColor, RazerChroma.Net.NativeWin32.ColorRef drawOnTop)
         {
             baseColor.B =(byte)(baseColor.B + (drawOnTop.B - baseColor.B) * (drawOnTop.A / 255.0));
             baseColor.G = (byte)(baseColor.G + (drawOnTop.G - baseColor.G) * (drawOnTop.A / 255.0));

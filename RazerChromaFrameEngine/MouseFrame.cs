@@ -94,11 +94,11 @@ namespace RazerChromaFrameEngine
         }
         public void Clear(RazerChroma.Net.NativeWin32.ColorRef color)
         {
-            SetKeys(0, 0, (int)RazerChroma.Net.Keyboard.Definitions.MaxRow - 1, (int)RazerChroma.Net.Keyboard.Definitions.MaxCol - 1, color);
+            SetKeys(0, 0, (int)RazerChroma.Net.Mouse.Definitions.MaxRow - 1, (int)RazerChroma.Net.Mouse.Definitions.MaxCol - 1, color);
         }
         public void Clear(Color color)
         {
-            SetKeys(0, 0, (int)RazerChroma.Net.Keyboard.Definitions.MaxRow - 1, (int)RazerChroma.Net.Keyboard.Definitions.MaxCol - 1, color);
+            SetKeys(0, 0, (int)RazerChroma.Net.Mouse.Definitions.MaxRow - 1, (int)RazerChroma.Net.Mouse.Definitions.MaxCol - 1, color);
         }
 
         public void Update()

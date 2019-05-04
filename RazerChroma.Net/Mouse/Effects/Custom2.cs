@@ -11,9 +11,9 @@ namespace RazerChroma.Net.Mouse.Effects
     public struct Custom2
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)(Definitions.MaxRow * Definitions.MaxCol))]
-        public NativeWin32.ColorRef[][] Color;
+        public NativeWin32.ColorRef[,] Color;
 
-        public Custom2(NativeWin32.ColorRef[][] color)
+        public Custom2(NativeWin32.ColorRef[,] color)
         {
             Color = color;
         }

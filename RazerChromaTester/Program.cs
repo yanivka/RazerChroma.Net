@@ -10,7 +10,9 @@ using RazerChromaDevice;
 using System.IO;
 using System.Reflection;
 using RazerChromaFrameEngine;
+using RazerChromaFrameEngine.CustomExtentions;
 using System.Drawing;
+
 
 namespace RazerChromaTester
 {
@@ -28,6 +30,22 @@ namespace RazerChromaTester
                 Console.WriteLine("Device detected: " + connectedDevice.Name);
             Console.ResetColor();
             Console.WriteLine();
+
+            KeyboradFrame frame = new KeyboradFrame(api);
+
+            
+            for(int anim = 0; anim <= 20; anim++)
+            {
+                frame.Clear();
+                frame.DrawWave(3, 8, new NativeWin32.ColorRef(255, 0, 0, 255), anim  , anim);
+                frame.Update();
+                System.Threading.Thread.Sleep(25);
+            }
+
+
+            Console.ReadKey();
+           
+
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Setting keyboard color to yellow");

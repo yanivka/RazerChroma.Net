@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorMath.cs" />
+    <Compile Include="CustomExtentions\KeyboradExtentions.cs" />
     <Compile Include="HeadsetFrame.cs" />
     <Compile Include="KeypadFrame.cs" />
     <Compile Include="ChromaLink.cs" />

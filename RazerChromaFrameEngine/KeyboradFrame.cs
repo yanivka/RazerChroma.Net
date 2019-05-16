@@ -58,7 +58,20 @@ namespace RazerChromaFrameEngine
         {
             rawEffect.Color[row,col].Add(color);
         }
-
+        public void SetKey(int row, int col, byte r, byte g, byte b, byte a)
+        {
+            rawEffect.Color[row, col].Add(r,g,b,a);
+        }
+        public void SetKeySafe(int row, int col, RazerChroma.Net.NativeWin32.ColorRef color)
+        {
+            if (row >= 0 && row < RazerChroma.Net.Keyboard.Definitions.MaxRow && col >= 0 && col < RazerChroma.Net.Keyboard.Definitions.MaxCol)
+                rawEffect.Color[row, col].Add(color);
+        }
+        public void SetKeySafe(int row, int col, byte r, byte g, byte b, byte a)
+        {
+            if(row >= 0 && row < RazerChroma.Net.Keyboard.Definitions.MaxRow && col >= 0 && col < RazerChroma.Net.Keyboard.Definitions.MaxCol)
+                rawEffect.Color[row, col].Add(r, g, b, a);
+        }
         public void SetKeys(IEnumerable<RazerChroma.Net.Keyboard.Definitions.RzKey> keys, RazerChroma.Net.NativeWin32.ColorRef color)
         {
             foreach (RazerChroma.Net.Keyboard.Definitions.RzKey singleKey in keys)

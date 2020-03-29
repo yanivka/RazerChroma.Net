@@ -64,6 +64,18 @@ mouseFrame.Update();
 ```
 Note: SetKey and SetKeys support transparency (Not like the basic API). 
 
+### Dispose
+
+If you are done using the API, or you simply want the default effects to kick in, you should dispose of it properly. In case you want to things such as stopping and resuming custom Chroma effects, if you try to create a new API instance, an error will occur.
+Dispose of it properly implementing `IDisposable` in your class, and implementing the following in the `Dispose` method
+```csharp
+private NativeRazerApi api;
+public void Dispose() {
+  if (api != null) api.Dispose();
+}
+```
+Call the method when you are done using Chroma effects.
+
 # Pre-Requirements
 
 - When creating a native api object, RazerChromaSDK.dll will be loaded.
